@@ -1,0 +1,17 @@
+# Cloudflare Worker config for the Voice Lab backend.
+# Deploy: npx wrangler deploy   (after `npx wrangler login`)
+# Secrets (never in this file):
+#   npx wrangler secret put APP_ACCESS_CODE
+#   npx wrangler secret put ANTHROPIC_API_KEY      (Phase 2+)
+#   npx wrangler secret put DEEPGRAM_API_KEY       (optional; without it, Cloudflare-hosted Nova-3 is used)
+name = "voice-lab-api"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+# Cloudflare-hosted speech-to-text (Deepgram Nova-3). Uses your free daily allowance.
+[ai]
+binding = "AI"
+
+[vars]
+# The phone app's address. Requests from any other website are refused.
+ALLOWED_ORIGINS = "https://lsd7bkk-del.github.io"

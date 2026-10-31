@@ -1,0 +1,12 @@
+{
+  "name": "voice-lab",
+  "private": true,
+  "type": "module",
+  "description": "Personal voice, presentation and persuasion trainer (phone web app + small backend).",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "test": "node --test test/*.test.js",
+    "test:e2e": "node test/e2e/phone.e2e.mjs"
+  },
+  "engines": { "node": ">=18" }
+}
